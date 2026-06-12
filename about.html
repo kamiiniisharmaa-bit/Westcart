@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>ShopNest — About Us | Our Story & Values</title>
+    <!-- Google Fonts & Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fafafc;
+            color: #1e1e2a;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* header & navigation (consistent) */
+        .top-bar {
+            background: #ffffff;
+            border-bottom: 1px solid #eef2f6;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(2px);
+            background-color: rgba(255,255,255,0.96);
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            padding: 18px 0;
+            gap: 16px;
+        }
+
+        .logo h1 {
+            font-size: 1.9rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, #1b2f44, #2a6f6f);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .logo a {
+            text-decoration: none;
+        }
+
+        .search-bar {
+            flex: 1;
+            max-width: 400px;
+            display: flex;
+            background: #f2f4f8;
+            border-radius: 60px;
+            padding: 6px 12px;
+            align-items: center;
+            border: 1px solid #e2e8f0;
+        }
+
+        .search-bar input {
+            background: transparent;
+            border: none;
+            padding: 12px 12px;
+            width: 100%;
+            font-size: 0.95rem;
+            outline: none;
+        }
+
+        .search-bar button {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            color: #2d6a6a;
+            padding: 6px 12px;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+        }
+
+        .nav-icons i {
+            font-size: 1.5rem;
+            color: #2c3e44;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .nav-icons i:hover {
+            color: #1f8a8a;
+        }
+
+        /* categories strip */
+        .categories {
+            background: #ffffff;
+            border-bottom: 1px solid #edf2f7;
+            padding: 12px 0;
+        }
+
+        .cat-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 28px;
+            list-style: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .cat-list li {
+            cursor: pointer;
+            color: #334155;
+            transition: 0.2s;
+        }
+
+        .cat-list li:hover {
+            color: #2c7a7a;
+        }
+
+        /* about hero */
+        .about-hero {
+            background: linear-gradient(125deg, #eef5f5 0%, #ffffff 100%);
+            border-radius: 32px;
+            margin: 32px 0 40px 0;
+            padding: 56px 48px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #1a2e3a;
+            margin-bottom: 18px;
+        }
+
+        .about-hero .tagline {
+            font-size: 1.2rem;
+            color: #3b6e6e;
+            font-weight: 500;
+            margin-bottom: 20px;
+            letter-spacing: -0.2px;
+        }
+
+        .about-hero p {
+            font-size: 1.05rem;
+            color: #475569;
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        /* story grid */
+        .story-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 48px;
+            align-items: center;
+            margin: 56px 0 64px;
+        }
+        .story-text {
+            flex: 1.2;
+        }
+        .story-text h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #1e3a3a;
+            margin-bottom: 20px;
+        }
+        .story-text p {
+            margin-bottom: 18px;
+            color: #334155;
+        }
+        .story-image {
+            flex: 0.9;
+            border-radius: 32px;
+            overflow: hidden;
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.1);
+        }
+        .story-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: 0.3s;
+        }
+        .story-image:hover img {
+            transform: scale(1.02);
+        }
+
+        /* values section */
+        .values-section {
+            text-align: center;
+            margin: 60px 0 40px;
+        }
+        .values-section h2 {
+            font-size: 2rem;
+            margin-bottom: 48px;
+            color: #1e3a3a;
+        }
+        .values-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 32px;
+            justify-content: center;
+        }
+        .value-card {
+            background: white;
+            border-radius: 28px;
+            padding: 32px 24px;
+            flex: 1;
+            min-width: 220px;
+            box-shadow: 0 8px 22px rgba(0,0,0,0.04);
+            border: 1px solid #eef2f8;
+            transition: all 0.2s;
+        }
+        .value-card:hover {
+            transform: translateY(-6px);
+            border-color: #cde0e0;
+        }
+        .value-card i {
+            font-size: 2.5rem;
+            color: #2a6f6f;
+            margin-bottom: 20px;
+        }
+        .value-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+        }
+        .value-card p {
+            color: #4a5b6e;
+            font-size: 0.95rem;
+        }
+
+        /* team spotlight */
+        .team-section {
+            background: #ffffff;
+            border-radius: 32px;
+            padding: 48px 40px;
+            margin: 50px 0 40px;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.02);
+            border: 1px solid #eef2f8;
+        }
+        .team-section h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 40px;
+            color: #1e3a3a;
+        }
+        .team-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: center;
+        }
+        .team-member {
+            text-align: center;
+            max-width: 220px;
+        }
+        .team-member .avatar {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 18px;
+            border: 3px solid #cde3e3;
+            padding: 4px;
+        }
+        .team-member h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        .team-member p {
+            color: #5d6f83;
+            font-size: 0.85rem;
+        }
+
+        /* stats banner */
+        .stats-banner {
+            background: #1f2f32;
+            border-radius: 32px;
+            padding: 56px 32px;
+            margin: 48px 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 32px;
+            text-align: center;
+            background-image: radial-gradient(circle at 20% 40%, #2e5656 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        .stat-item {
+            color: white;
+        }
+        .stat-number {
+            font-size: 2.8rem;
+            font-weight: 800;
+            display: block;
+            line-height: 1.2;
+        }
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.85;
+            letter-spacing: 0.5px;
+        }
+
+        .back-home {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #1f4f4f;
+            color: white;
+            padding: 12px 28px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.2s;
+            margin: 20px 0 30px;
+        }
+        .back-home:hover {
+            background: #0c3b3b;
+            transform: translateY(-2px);
+        }
+
+        footer {
+            background: #11181c;
+            color: #cddfe3;
+            padding: 48px 0 32px;
+            margin-top: 20px;
+        }
+
+        .footer-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 32px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 18px;
+        }
+
+        .footer-col p, .footer-col li {
+            font-size: 0.85rem;
+            list-style: none;
+            margin-bottom: 10px;
+        }
+
+        .social i {
+            font-size: 1.3rem;
+            margin-right: 16px;
+            color: #bcd0d4;
+        }
+
+        @media (max-width: 760px) {
+            .navbar {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .search-bar {
+                max-width: 100%;
+            }
+            .container {
+                padding: 0 18px;
+            }
+            .about-hero {
+                padding: 36px 24px;
+            }
+            .about-hero h1 {
+                font-size: 2.2rem;
+            }
+            .story-grid {
+                flex-direction: column;
+            }
+            .values-grid {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .team-grid {
+                gap: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="top-bar">
+    <div class="container">
+        <div class="navbar">
+            <div class="logo">
+                <a href="#" id="homeLink" style="text-decoration: none;">
+                    <h1>🪺 ShopNest</h1>
+                </a>
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Search our story, values..." id="searchAboutInput">
+                <button id="searchAboutBtn"><i class="fas fa-search"></i></button>
+            </div>
+            <div class="nav-icons">
+               <a href="index.html">Home</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="about.html">About Us</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="categories">
+    <div class="container">
+        <ul class="cat-list">
+            <li>New Arrivals</li>
+            <li>Clothing</li>
+            <li>Electronics</li>
+            <li>Home & Living</li>
+            <li>Accessories</li>
+            <li>Sale</li>
+        </ul>
+    </div>
+</div>
+
+<main>
+    <div class="container">
+        <!-- About hero section -->
+        <div class="about-hero">
+            <h1>Our Story 🪺</h1>
+            <div class="tagline">Cozy comfort, conscious commerce.</div>
+            <p>ShopNest was born from a simple idea: create a warm, welcoming corner of the internet where quality meets heart. We believe shopping should feel like finding the perfect spot in your nest — effortless, exciting, and truly yours.</p>
+        </div>
+
+        <!-- Story + image grid -->
+        <div class="story-grid">
+            <div class="story-text">
+                <h2>From a small dream to your daily nest</h2>
+                <p>Founded in 2020 by two friends who wanted to change the way people discover everyday essentials, ShopNest started as a tiny pop-up. Today, we've grown into a global community of dreamers, makers, and shoppers who value sustainability, design, and honest relationships.</p>
+                <p>Every product you see is handpicked for its quality, originality, and positive impact. Whether it's cozy loungewear, mindful home decor, or the latest tech, we curate with care — so you can shop with confidence.</p>
+                <p>We're not just another ecommerce store. We're your nest — a place where style meets substance and every purchase plants a seed for a better world.</p>
+            </div>
+            <div class="story-image">
+                <img src="https://images.unsplash.com/photo-1527525443983-6e60c75fff46?w=700&h=500&fit=crop" alt="ShopNest team and cozy workspace" onerror="this.src='https://picsum.photos/id/96/700/500'">
+            </div>
+        </div>
+
+        <!-- Core Values -->
+        <div class="values-section">
+            <h2>✨ What we stand for</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <i class="fas fa-leaf"></i>
+                    <h3>Sustainability</h3>
+                    <p>Eco-friendly packaging, carbon-neutral shipping, and ethical sourcing — we're committed to protecting our planet.</p>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-hand-sparkles"></i>
+                    <h3>Quality First</h3>
+                    <p>No shortcuts. We test every product to ensure it meets our high standards for durability, comfort, and design.</p>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-heart"></i>
+                    <h3>Customer Love</h3>
+                    <p>Our team treats every customer like family. 24/7 support, easy returns, and a smile in every interaction.</p>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-globe"></i>
+                    <h3>Global Community</h3>
+                    <p>We celebrate diversity and collaborate with artisans & makers from around the world.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Team spotlight (real faces vibe) -->
+        <div class="team-section">
+            <h2>🕊️ Meet the nest-makers</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <img class="avatar" src="https://randomuser.me/api/portraits/women/68.jpg" alt="Founder Lena" onerror="this.src='https://picsum.photos/id/64/130/130'">
+                    <h4>Lena Chen</h4>
+                    <p>Co-founder & CEO</p>
+                </div>
+                <div class="team-member">
+                    <img class="avatar" src="https://randomuser.me/api/portraits/men/32.jpg" alt="Co-founder Marcus" onerror="this.src='https://picsum.photos/id/91/130/130'">
+                    <h4>Marcus Vega</h4>
+                    <p>Creative Director</p>
+                </div>
+                <div class="team-member">
+                    <img class="avatar" src="https://randomuser.me/api/portraits/women/45.jpg" alt="Head of Sustainability" onerror="this.src='https://picsum.photos/id/29/130/130'">
+                    <h4>Priya Kapoor</h4>
+                    <p>Sustainability Lead</p>
+                </div>
+                <div class="team-member">
+                    <img class="avatar" src="https://randomuser.me/api/portraits/men/75.jpg" alt="Customer Happiness" onerror="this.src='https://picsum.photos/id/100/130/130'">
+                    <h4>James Okafor</h4>
+                    <p>Customer Happiness</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats Section with animation on numbers -->
+        <div class="stats-banner">
+            <div class="stat-item">
+                <span class="stat-number" data-target="128">0</span>
+                <span class="stat-label">Countries reached</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" data-target="25000">0</span>
+                <span class="stat-label">Happy customers</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" data-target="98">0</span>
+                <span class="stat-label">Satisfaction rate %</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" data-target="15">0</span>
+                <span class="stat-label">Tons CO₂ offset</span>
+            </div>
+        </div>
+
+        <!-- call to action & back to home -->
+        <div style="text-align: center; margin: 20px 0 50px;">
+            <a href="#" id="homeReturnBtn" class="back-home"><i class="fas fa-arrow-left"></i> Back to ShopNest Home</a>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>🪹 ShopNest</h4>
+                <p>Your cozy corner for quality finds. Worldwide shipping, sustainable packaging.</p>
+                <div class="social">
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-facebook"></i>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Explore</h4>
+                <p>About Us</p>
+                <p>Gift Cards</p>
+                <p>Sustainability</p>
+                <p>Affiliate</p>
+            </div>
+            <div class="footer-col">
+                <h4>Support</h4>
+                <p>FAQs</p>
+                <p>Returns & Exchanges</p>
+                <p>Track Order</p>
+                <p>Contact</p>
+            </div>
+            <div class="footer-col">
+                <h4>Get the App</h4>
+                <p><i class="fab fa-apple"></i> App Store</p>
+                <p><i class="fab fa-google-play"></i> Google Play</p>
+            </div>
+        </div>
+        <p style="margin-top: 48px; text-align: center; font-size: 0.75rem;">© 2025 ShopNest — built with love, for your nest.</p>
+    </div>
+</footer>
+
+<script>
+    // Interactive highlight search within about page (story, values, team)
+    const searchInput = document.getElementById('searchAboutInput');
+    const searchBtn = document.getElementById('searchAboutBtn');
+    const mainContent = document.querySelector('main');
+
+    function clearHighlights() {
+        const highlighted = document.querySelectorAll('.search-highlight');
+        highlighted.forEach(el => {
+            const parent = el.parentNode;
+            parent.replaceChild(document.createTextNode(el.textContent), el);
+            parent.normalize();
+        });
+    }
+
+    function highlightText(term) {
+        if (!term) return;
+        const regex = new RegExp(`(${term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+        const walker = document.createTreeWalker(mainContent, NodeFilter.SHOW_TEXT, {
+            acceptNode: function(node) {
+                if (node.parentElement.tagName === 'SCRIPT' || node.parentElement.tagName === 'STYLE') return NodeFilter.FILTER_REJECT;
+                if (node.textContent.trim().length === 0) return NodeFilter.FILTER_SKIP;
+                return NodeFilter.FILTER_ACCEPT;
+            }
+        });
+        const nodesToReplace = [];
+        while (walker.nextNode()) {
+            const node = walker.currentNode;
+            if (node.textContent.match(regex)) {
+                nodesToReplace.push(node);
+            }
+        }
+        nodesToReplace.forEach(node => {
+            const span = document.createElement('span');
+            span.innerHTML = node.textContent.replace(regex, match => `<span class="search-highlight" style="background-color: #fdee9f; border-radius: 6px; padding: 0 2px; font-weight: 500;">${match}</span>`);
+            node.parentNode.replaceChild(span, node);
+        });
+    }
+
+    function performSearch() {
+        const term = searchInput.value.trim();
+        clearHighlights();
+        if (term === "") {
+            window.scrollTo({ top: 200, behavior: 'smooth' });
+            return;
+        }
+        highlightText(term);
+        const firstHighlight = document.querySelector('.search-highlight');
+        if (firstHighlight) {
+            firstHighlight.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        } else {
+            alert(`No matches for "${term}" in About Us. Try searching "sustainability", "team", "quality".`);
+        }
+    }
+
+    searchBtn.addEventListener('click', performSearch);
+    searchInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') performSearch();
+    });
+
+    // Number counter animation for stats
+    const statNumbers = document.querySelectorAll('.stat-number');
+    const statsSection = document.querySelector('.stats-banner');
+    let animated = false;
+
+    function animateNumbers() {
+        if (animated) return;
+        statNumbers.forEach(el => {
+            const target = parseInt(el.getAttribute('data-target'), 10);
+            let current = 0;
+            const increment = target / 55;
+            const updateCounter = () => {
+                current += increment;
+                if (current < target) {
+                    el.innerText = Math.floor(current);
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    el.innerText = target;
+                }
+            };
+            updateCounter();
+        });
+        animated = true;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !animated) {
+                animateNumbers();
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.4 });
+    if (statsSection) observer.observe(statsSection);
+
+    // go to homepage actions
+    function goToHomepage() {
+        alert("Welcome back to the ShopNest homepage. (demo - redirect to main index)");
+        window.location.href = "#";
+    }
+    const homeLink = document.getElementById('homeLink');
+    const homeReturnBtn = document.getElementById('homeReturnBtn');
+    if (homeLink) homeLink.addEventListener('click', (e) => { e.preventDefault(); goToHomepage(); });
+    if (homeReturnBtn) homeReturnBtn.addEventListener('click', (e) => { e.preventDefault(); goToHomepage(); });
+
+    // category clicks demo
+    const catItems = document.querySelectorAll('.cat-list li');
+    catItems.forEach(cat => {
+        cat.addEventListener('click', (e) => {
+            alert(`✨ "${e.target.innerText}" — Discover amazing collections at ShopNest! (demo)`);
+        });
+    });
+    const navIcons = document.querySelectorAll('.nav-icons i');
+    navIcons.forEach(icon => {
+        icon.addEventListener('click', () => {
+            alert('❤️ 🛒 👤 Love, cart & account — we value your privacy and style!');
+        });
+    });
+</script>
+</body>
+</html>

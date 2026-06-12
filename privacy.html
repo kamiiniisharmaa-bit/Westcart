@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>ShopNest — Privacy Policy</title>
+    <!-- Google Fonts & Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fafafc;
+            color: #1e1e2a;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* header & navigation (consistent with homepage & terms) */
+        .top-bar {
+            background: #ffffff;
+            border-bottom: 1px solid #eef2f6;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(2px);
+            background-color: rgba(255,255,255,0.96);
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            padding: 18px 0;
+            gap: 16px;
+        }
+
+        .logo h1 {
+            font-size: 1.9rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, #1b2f44, #2a6f6f);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .logo a {
+            text-decoration: none;
+        }
+
+        .search-bar {
+            flex: 1;
+            max-width: 400px;
+            display: flex;
+            background: #f2f4f8;
+            border-radius: 60px;
+            padding: 6px 12px;
+            align-items: center;
+            border: 1px solid #e2e8f0;
+        }
+
+        .search-bar input {
+            background: transparent;
+            border: none;
+            padding: 12px 12px;
+            width: 100%;
+            font-size: 0.95rem;
+            outline: none;
+        }
+
+        .search-bar button {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            color: #2d6a6a;
+            padding: 6px 12px;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+        }
+
+        .nav-icons i {
+            font-size: 1.5rem;
+            color: #2c3e44;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .nav-icons i:hover {
+            color: #1f8a8a;
+        }
+
+        /* categories strip */
+        .categories {
+            background: #ffffff;
+            border-bottom: 1px solid #edf2f7;
+            padding: 12px 0;
+        }
+
+        .cat-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 28px;
+            list-style: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .cat-list li {
+            cursor: pointer;
+            color: #334155;
+            transition: 0.2s;
+        }
+
+        .cat-list li:hover {
+            color: #2c7a7a;
+        }
+
+        /* privacy hero */
+        .privacy-hero {
+            background: linear-gradient(115deg, #eef5f5 0%, #ffffff 100%);
+            border-radius: 32px;
+            margin: 32px 0 40px 0;
+            padding: 48px 40px;
+            text-align: center;
+        }
+
+        .privacy-hero h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #1a2e3a;
+            margin-bottom: 16px;
+        }
+
+        .privacy-hero p {
+            font-size: 1.1rem;
+            color: #475569;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .last-updated {
+            margin-top: 20px;
+            font-size: 0.85rem;
+            background: #e2e8f0;
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 40px;
+            color: #2c5a5a;
+        }
+
+        /* privacy content styling */
+        .privacy-content {
+            background: white;
+            border-radius: 32px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.03);
+            padding: 48px 48px;
+            margin-bottom: 60px;
+            border: 1px solid #eef2f8;
+        }
+
+        .privacy-section {
+            margin-bottom: 42px;
+        }
+
+        .privacy-section h2 {
+            font-size: 1.7rem;
+            font-weight: 600;
+            color: #1e3a3a;
+            margin-bottom: 18px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #cde3e3;
+            display: inline-block;
+        }
+
+        .privacy-section h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin: 24px 0 12px 0;
+            color: #2c5e5e;
+        }
+
+        .privacy-section p {
+            margin-bottom: 16px;
+            color: #334155;
+            font-size: 1rem;
+        }
+
+        .privacy-section ul, .privacy-section ol {
+            margin: 16px 0 16px 28px;
+            color: #334155;
+        }
+
+        .privacy-section li {
+            margin-bottom: 8px;
+        }
+
+        .highlight-box {
+            background: #f8fbfb;
+            border-left: 5px solid #2a6f6f;
+            padding: 20px 28px;
+            border-radius: 20px;
+            margin: 24px 0;
+        }
+
+        .cookie-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #eef4f4;
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: #1f6e6e;
+            margin-bottom: 16px;
+        }
+
+        .back-home {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #1f4f4f;
+            color: white;
+            padding: 12px 28px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.2s;
+            margin-top: 20px;
+        }
+
+        .back-home:hover {
+            background: #0c3b3b;
+            transform: translateY(-2px);
+        }
+
+        footer {
+            background: #11181c;
+            color: #cddfe3;
+            padding: 48px 0 32px;
+            margin-top: 20px;
+        }
+
+        .footer-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 32px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 18px;
+        }
+
+        .footer-col p,
+        .footer-col li {
+            font-size: 0.85rem;
+            list-style: none;
+            margin-bottom: 10px;
+        }
+
+        .social i {
+            font-size: 1.3rem;
+            margin-right: 16px;
+            color: #bcd0d4;
+        }
+
+        @media (max-width: 760px) {
+            .navbar {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .search-bar {
+                max-width: 100%;
+            }
+            .container {
+                padding: 0 18px;
+            }
+            .privacy-hero {
+                padding: 32px 20px;
+            }
+            .privacy-hero h1 {
+                font-size: 2rem;
+            }
+            .privacy-content {
+                padding: 28px 20px;
+            }
+            .privacy-section h2 {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="top-bar">
+    <div class="container">
+        <div class="navbar">
+            <div class="logo">
+                <a href="#" id="homeLink" style="text-decoration: none;">
+                    <h1>🪺 ShopNest</h1>
+                </a>
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Search privacy policy..." id="searchPrivacyInput">
+                <button id="searchPrivacyBtn"><i class="fas fa-search"></i></button>
+            </div>
+            <div class="nav-icons">
+                <a href="index.html">Home</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="about.html">About Us</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="categories">
+    <div class="container">
+        <ul class="cat-list">
+            <li>New Arrivals</li>
+            <li>Clothing</li>
+            <li>Electronics</li>
+            <li>Home & Living</li>
+            <li>Accessories</li>
+            <li>Sale</li>
+        </ul>
+    </div>
+</div>
+
+<main>
+    <div class="container">
+        <!-- Privacy header section -->
+        <div class="privacy-hero">
+            <h1>🔒 Privacy Policy</h1>
+            <p>Your privacy matters at ShopNest. We are committed to protecting your personal data and being transparent about how we use it.</p>
+            <div class="last-updated"><i class="far fa-calendar-alt"></i> Last updated: June 12, 2026</div>
+        </div>
+
+        <!-- Main privacy content -->
+        <div class="privacy-content" id="privacyContent">
+            <div class="privacy-section" id="sectionIntroduction">
+                <h2>1. Introduction</h2>
+                <p>Welcome to ShopNest ("we," "our," or "us"). This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website, make a purchase, or interact with our services. Please read this policy carefully. By accessing or using ShopNest, you agree to the practices described in this Privacy Policy.</p>
+                <p>If you do not agree with the terms of this policy, please do not use our Site or services. We may update this policy from time to time; any changes will be posted on this page with an updated revision date.</p>
+            </div>
+
+            <div class="privacy-section" id="sectionCollect">
+                <h2>2. Information We Collect</h2>
+                <p>We collect different types of information to provide, improve, and personalize your experience at ShopNest:</p>
+                <ul>
+                    <li><strong>Personal Identifiers:</strong> Name, email address, phone number, shipping/billing address, and account credentials.</li>
+                    <li><strong>Payment Information:</strong> Credit/debit card details, digital wallet info (processed securely via third-party PCI-compliant gateways; we do not store full card numbers).</li>
+                    <li><strong>Order History:</strong> Products purchased, returns, preferences, and wishlist items.</li>
+                    <li><strong>Technical Data:</strong> IP address, browser type, device identifiers, and cookies (see Section 5).</li>
+                    <li><strong>Usage Data:</strong> Pages visited, time spent, search queries, and referral sources.</li>
+                    <li><strong>Communications:</strong> Customer support interactions, surveys, and feedback submissions.</li>
+                </ul>
+                <div class="highlight-box">
+                    <i class="fas fa-shield-alt" style="margin-right: 12px; color:#2a6f6f;"></i> 
+                    <strong>Our promise:</strong> We never sell your personal information to third parties for their own marketing purposes without your explicit consent.
+                </div>
+            </div>
+
+            <div class="privacy-section" id="sectionUsage">
+                <h2>3. How We Use Your Information</h2>
+                <p>ShopNest uses collected data for legitimate business purposes, including:</p>
+                <ul>
+                    <li>Processing and fulfilling your orders, returns, and exchanges.</li>
+                    <li>Sending order confirmations, shipping updates, and important service messages.</li>
+                    <li>Improving our website, products, and customer service.</li>
+                    <li>Personalizing your shopping experience (recommendations, saved carts).</li>
+                    <li>Preventing fraud, unauthorized transactions, and ensuring security.</li>
+                    <li>Complying with legal obligations and enforcing our Terms & Conditions.</li>
+                    <li>With your consent: sending promotional emails, newsletters, and exclusive offers (you can opt out anytime).</li>
+                </ul>
+            </div>
+
+            <div class="privacy-section" id="sectionSharing">
+                <h2>4. Sharing & Disclosure</h2>
+                <p>We may share your information only in the following circumstances:</p>
+                <ul>
+                    <li><strong>Service Providers:</strong> Trusted third parties that help operate our business (e.g., payment processors, shipping carriers, IT hosting, email delivery). These parties are contractually bound to safeguard your data.</li>
+                    <li><strong>Legal Compliance:</strong> If required by law, court order, or governmental regulation to protect our rights, safety, or property.</li>
+                    <li><strong>Business Transfers:</strong> In the event of a merger, acquisition, or sale of assets, your information may be transferred as part of the transaction (with notice).</li>
+                    <li><strong>With Your Consent:</strong> Any other case where you explicitly authorize us to share your information.</li>
+                </ul>
+                <p>We do not rent or sell your personal data to advertisers or data brokers.</p>
+            </div>
+
+            <div class="privacy-section" id="sectionCookies">
+                <h2>5. Cookies & Tracking Technologies</h2>
+                <div class="cookie-badge"><i class="fas fa-cookie-bite"></i> We use cookies to enhance your experience</div>
+                <p>ShopNest uses cookies, web beacons, and similar technologies to remember your preferences, analyze trends, and improve site performance. Cookies are small text files stored on your device. You can manage cookie preferences through your browser settings; however, disabling essential cookies may affect certain features (e.g., shopping cart).</p>
+                <p><strong>Types of cookies we use:</strong></p>
+                <ul>
+                    <li><strong>Essential Cookies:</strong> Required for core functionality (login, checkout).</li>
+                    <li><strong>Analytics Cookies:</strong> Help us understand how visitors interact with our site (e.g., Google Analytics).</li>
+                    <li><strong>Functional Cookies:</strong> Remember your preferences and region.</li>
+                    <li><strong>Advertising Cookies:</strong> Used to show relevant product recommendations (only with consent).</li>
+                </ul>
+                <p>By using our Site, you consent to our use of cookies as described. You can withdraw consent by clearing cookies or adjusting browser settings.</p>
+            </div>
+
+            <div class="privacy-section" id="sectionDataRights">
+                <h2>6. Your Privacy Rights & Choices</h2>
+                <p>Depending on your location (e.g., GDPR for EU residents, CCPA for California), you may have the following rights regarding your personal data:</p>
+                <ul>
+                    <li><strong>Access & Portability:</strong> Request a copy of the personal data we hold about you.</li>
+                    <li><strong>Correction:</strong> Update or correct inaccurate information.</li>
+                    <li><strong>Deletion:</strong> Request deletion of your personal data, subject to legal exceptions (e.g., fraud prevention).</li>
+                    <li><strong>Opt-out of Sale/Sharing:</strong> We do not sell your data, but you can opt out of targeted advertising.</li>
+                    <li><strong>Restriction & Objection:</strong> Limit how we use your data in certain situations.</li>
+                    <li><strong>Withdraw Consent:</strong> For marketing emails, you can unsubscribe via the link in any email or contact us.</li>
+                </ul>
+                <div class="highlight-box">
+                    <i class="fas fa-user-check" style="margin-right: 12px; color:#2a6f6f;"></i> 
+                    To exercise any of these rights, please contact our Privacy Team at <strong>privacy@shopnest.com</strong> or use the form below. We will respond within 30 days.
+                </div>
+            </div>
+
+            <div class="privacy-section" id="sectionDataSecurity">
+                <h2>7. Data Security & Retention</h2>
+                <p>ShopNest takes data security seriously. We implement industry-standard administrative, technical, and physical safeguards — including SSL encryption, firewalls, and access controls — to protect your personal information against unauthorized access, alteration, or destruction.</p>
+                <p>We retain your personal data only as long as necessary to fulfill the purposes outlined in this policy, unless a longer retention period is required or permitted by law. For example, order information is retained for tax, accounting, and warranty purposes. After this period, we securely delete or anonymize your data.</p>
+                <p>While we strive to protect your information, no method of transmission over the Internet is 100% secure. We encourage you to keep your account credentials confidential and notify us immediately of any suspected breach.</p>
+            </div>
+
+            <div class="privacy-section" id="sectionChildren">
+                <h2>8. Children's Privacy</h2>
+                <p>ShopNest does not knowingly collect personal information from children under the age of 13. If we discover that a child under 13 has provided us with personal data, we will delete it immediately. Parents or guardians who believe their child has submitted information should contact us at privacy@shopnest.com.</p>
+            </div>
+
+            <div class="privacy-section" id="sectionThirdParty">
+                <h2>9. Third-Party Links</h2>
+                <p>Our website may contain links to external sites (e.g., social media platforms, payment partners). We are not responsible for the privacy practices or content of those third-party websites. We encourage you to read their privacy policies before providing any personal information.</p>
+            </div>
+
+            <div class="privacy-section" id="sectionUpdates">
+                <h2>10. Changes to This Privacy Policy</h2>
+                <p>We reserve the right to update this Privacy Policy at any time. Material changes will be communicated via email (if you have an account) or through a notice on our homepage. The "Last updated" date at the top of this page indicates when revisions were made. Your continued use of ShopNest after changes constitute acceptance of the updated policy.</p>
+            </div>
+
+            <div class="privacy-section" id="sectionContact">
+                <h2>11. Contact Us</h2>
+                <p>If you have any questions, concerns, or requests regarding this Privacy Policy or our data practices, please reach out to our Privacy Team:</p>
+                <p><i class="fas fa-envelope" style="margin-right: 8px; color:#2a6f6f;"></i> <strong>Email:</strong> privacy@shopnest.com<br>
+                <i class="fas fa-phone-alt" style="margin-right: 8px; color:#2a6f6f;"></i> <strong>Privacy Hotline:</strong> +1 (800) 555-PRIV<br>
+                <i class="fas fa-map-marker-alt" style="margin-right: 8px; color:#2a6f6f;"></i> <strong>Data Protection Officer:</strong> 123 Commerce Ave, Suite 450, Wilmington, DE 19801, USA</p>
+                <p>For EU residents, you also have the right to lodge a complaint with your local data protection authority.</p>
+            </div>
+
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="#" id="homeReturnBtn" class="back-home"><i class="fas fa-arrow-left"></i> Back to Homepage</a>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>🪹 ShopNest</h4>
+                <p>Your cozy corner for quality finds. Worldwide shipping, sustainable packaging.</p>
+                <div class="social">
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-facebook"></i>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Explore</h4>
+                <p>About Us</p>
+                <p>Gift Cards</p>
+                <p>Sustainability</p>
+                <p>Affiliate</p>
+            </div>
+            <div class="footer-col">
+                <h4>Support</h4>
+                <p>FAQs</p>
+                <p>Returns & Exchanges</p>
+                <p>Track Order</p>
+                <p>Contact</p>
+            </div>
+            <div class="footer-col">
+                <h4>Get the App</h4>
+                <p><i class="fab fa-apple"></i> App Store</p>
+                <p><i class="fab fa-google-play"></i> Google Play</p>
+            </div>
+        </div>
+        <p style="margin-top: 48px; text-align: center; font-size: 0.75rem;">© 2025 ShopNest — Protecting your privacy is our priority.</p>
+    </div>
+</footer>
+
+<script>
+    // Interactive search within privacy sections (client-side highlight)
+    const searchInput = document.getElementById('searchPrivacyInput');
+    const searchBtn = document.getElementById('searchPrivacyBtn');
+    const privacyContainer = document.getElementById('privacyContent');
+
+    function clearHighlights() {
+        const highlighted = document.querySelectorAll('.search-highlight');
+        highlighted.forEach(el => {
+            const parent = el.parentNode;
+            parent.replaceChild(document.createTextNode(el.textContent), el);
+            parent.normalize();
+        });
+    }
+
+    function highlightText(term) {
+        if (!term) return;
+        const regex = new RegExp(`(${term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+        const walker = document.createTreeWalker(privacyContainer, NodeFilter.SHOW_TEXT, {
+            acceptNode: function(node) {
+                if (node.parentElement.tagName === 'SCRIPT' || node.parentElement.tagName === 'STYLE') return NodeFilter.FILTER_REJECT;
+                if (node.textContent.trim().length === 0) return NodeFilter.FILTER_SKIP;
+                return NodeFilter.FILTER_ACCEPT;
+            }
+        });
+        const nodesToReplace = [];
+        while (walker.nextNode()) {
+            const node = walker.currentNode;
+            if (node.textContent.match(regex)) {
+                nodesToReplace.push(node);
+            }
+        }
+        nodesToReplace.forEach(node => {
+            const span = document.createElement('span');
+            span.innerHTML = node.textContent.replace(regex, match => `<span class="search-highlight" style="background-color: #fdee9f; border-radius: 6px; padding: 0 2px; font-weight: 500;">${match}</span>`);
+            node.parentNode.replaceChild(span, node);
+        });
+    }
+
+    function performPrivacySearch() {
+        const term = searchInput.value.trim();
+        clearHighlights();
+        if (term === "") {
+            window.scrollTo({ top: 300, behavior: 'smooth' });
+            return;
+        }
+        highlightText(term);
+        const firstHighlight = document.querySelector('.search-highlight');
+        if (firstHighlight) {
+            firstHighlight.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        } else {
+            alert(`No matching term "${term}" found in Privacy Policy. Try searching "cookies", "GDPR", "data rights", "security".`);
+        }
+    }
+
+    searchBtn.addEventListener('click', performPrivacySearch);
+    searchInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') performPrivacySearch();
+    });
+
+    // Navigate back to homepage (demo interaction)
+    function goToHomepage() {
+        alert("Returning to ShopNest homepage. (In a full implementation, you would be redirected to the main index.html)");
+        window.location.href = "#";
+    }
+
+    const homeLink = document.getElementById('homeLink');
+    const homeReturnBtn = document.getElementById('homeReturnBtn');
+    if (homeLink) homeLink.addEventListener('click', (e) => { e.preventDefault(); goToHomepage(); });
+    if (homeReturnBtn) homeReturnBtn.addEventListener('click', (e) => { e.preventDefault(); goToHomepage(); });
+
+    // Category click demo (lightweight)
+    const catItems = document.querySelectorAll('.cat-list li');
+    catItems.forEach(cat => {
+        cat.addEventListener('click', (e) => {
+            alert(`✨ "${e.target.innerText}" — Explore amazing deals on ShopNest! (demo)`);
+        });
+    });
+
+    const navIcons = document.querySelectorAll('.nav-icons i');
+    navIcons.forEach(icon => {
+        icon.addEventListener('click', () => {
+            alert('❤️ 🛒 👤 Wishlist, Cart & Account — your privacy is always respected.');
+        });
+    });
+
+    // Optional hash scroll
+    if (window.location.hash) {
+        const id = window.location.hash.substring(1);
+        const targetSection = document.getElementById(`section${id.charAt(0).toUpperCase() + id.slice(1)}`);
+        if (targetSection) {
+            setTimeout(() => {
+                targetSection.scrollIntoView({ behavior: 'smooth' });
+            }, 100);
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>ShopNest — Modern Ecommerce Store</title>
+    <!-- Google Fonts & simple CSS reset -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 (free icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fafafc;
+            color: #1e1e2a;
+            line-height: 1.4;
+        }
+
+        /* container utility */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* header & navigation */
+        .top-bar {
+            background: #ffffff;
+            border-bottom: 1px solid #eef2f6;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(2px);
+            background-color: rgba(255,255,255,0.96);
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            padding: 18px 0;
+            gap: 16px;
+        }
+
+        .logo h1 {
+            font-size: 1.9rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, #1b2f44, #2a6f6f);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+        .logo span {
+            font-size: 1.4rem;
+        }
+
+        .search-bar {
+            flex: 1;
+            max-width: 400px;
+            display: flex;
+            background: #f2f4f8;
+            border-radius: 60px;
+            padding: 6px 12px;
+            align-items: center;
+            border: 1px solid #e2e8f0;
+        }
+        .search-bar input {
+            background: transparent;
+            border: none;
+            padding: 12px 12px;
+            width: 100%;
+            font-size: 0.95rem;
+            outline: none;
+            font-weight: 400;
+        }
+        .search-bar button {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            color: #2d6a6a;
+            padding: 6px 12px;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+        }
+        .nav-icons i {
+            font-size: 1.5rem;
+            color: #2c3e44;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .nav-icons i:hover { color: #1f8a8a; }
+
+        /* categories strip */
+        .categories {
+            background: #ffffff;
+            border-bottom: 1px solid #edf2f7;
+            padding: 12px 0;
+        }
+        .cat-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 28px;
+            list-style: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+        .cat-list li {
+            cursor: pointer;
+            color: #334155;
+            transition: 0.2s;
+        }
+        .cat-list li:hover { color: #2c7a7a; }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(105deg, #eef5f5 0%, #ffffff 100%);
+            margin: 24px 0 40px 0;
+            border-radius: 36px;
+            overflow: hidden;
+        }
+        .hero-grid {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            padding: 48px 40px;
+            gap: 30px;
+        }
+        .hero-text {
+            flex: 1.2;
+        }
+        .hero-text .badge {
+            background: #caf0f0;
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #1f6e6e;
+            margin-bottom: 18px;
+        }
+        .hero-text h2 {
+            font-size: 3rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 16px;
+            color: #1a2e3a;
+        }
+        .hero-text p {
+            color: #475569;
+            font-size: 1.1rem;
+            margin-bottom: 28px;
+            max-width: 90%;
+        }
+        .btn-shop {
+            background: #1f4f4f;
+            color: white;
+            border: none;
+            padding: 14px 34px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.2s;
+            box-shadow: 0 5px 12px rgba(0,0,0,0.05);
+        }
+        .btn-shop:hover {
+            background: #0c3b3b;
+            transform: scale(1.02);
+        }
+        .hero-image {
+            flex: 0.8;
+            background: #d9e9e9;
+            border-radius: 28px;
+            text-align: center;
+            padding: 20px;
+        }
+        .hero-image img {
+            max-width: 100%;
+            border-radius: 24px;
+            object-fit: cover;
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* section headers */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            margin: 48px 0 24px 0;
+        }
+        .section-header h3 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            letter-spacing: -0.3px;
+        }
+        .section-header a {
+            color: #2d6a6a;
+            font-weight: 500;
+            text-decoration: none;
+        }
+
+        /* product grid — all images working properly */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 32px;
+            margin-bottom: 30px;
+        }
+        .product-card {
+            background: #ffffff;
+            border-radius: 24px;
+            overflow: hidden;
+            transition: all 0.25s ease;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.02), 0 2px 6px rgba(0,0,0,0.05);
+            border: 1px solid #edf2f7;
+        }
+        .product-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 24px 36px -12px rgba(0,0,0,0.12);
+            border-color: #cbdde0;
+        }
+        .product-img {
+            width: 100%;
+            height: 260px;
+            background: #f7f9fc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.3s;
+        }
+        .product-card:hover .product-img img {
+            transform: scale(1.03);
+        }
+        .product-info {
+            padding: 18px 16px 20px;
+        }
+        .product-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 6px;
+        }
+        .price {
+            font-weight: 700;
+            color: #1e4a4a;
+            font-size: 1.2rem;
+            margin: 10px 0;
+        }
+        .old-price {
+            text-decoration: line-through;
+            font-size: 0.85rem;
+            color: #8a99aa;
+            margin-left: 8px;
+            font-weight: 400;
+        }
+        .rating {
+            color: #f5b042;
+            margin-bottom: 12px;
+            font-size: 0.85rem;
+        }
+        .add-to-cart {
+            background: #f0f4f4;
+            border: none;
+            width: 100%;
+            padding: 10px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: 0.2s;
+            color: #1f5e5e;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        .add-to-cart:hover {
+            background: #e2ecec;
+            color: #0f4646;
+        }
+
+        /* banner */
+        .feature-banner {
+            background: #1f2f32;
+            border-radius: 32px;
+            margin: 56px 0;
+            padding: 48px 40px;
+            background-image: radial-gradient(circle at 10% 30%, #2e5656 1px, transparent 1px);
+            background-size: 24px 24px;
+            color: white;
+            text-align: center;
+        }
+        .feature-banner h3 {
+            font-size: 2rem;
+            margin-bottom: 12px;
+        }
+        .feature-banner p {
+            opacity: 0.85;
+            max-width: 550px;
+            margin: 0 auto 24px auto;
+        }
+        .btn-light {
+            background: white;
+            color: #1f4f4f;
+            border: none;
+            padding: 12px 32px;
+            border-radius: 40px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        footer {
+            background: #11181c;
+            color: #cddfe3;
+            padding: 48px 0 32px;
+            margin-top: 40px;
+        }
+        .footer-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 32px;
+        }
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 18px;
+        }
+        .footer-col p, .footer-col li {
+            font-size: 0.85rem;
+            list-style: none;
+            margin-bottom: 10px;
+        }
+        .social i {
+            font-size: 1.3rem;
+            margin-right: 16px;
+            color: #bcd0d4;
+        }
+
+        @media (max-width: 760px) {
+            .hero-text h2 { font-size: 2rem; }
+            .navbar { flex-direction: column; align-items: stretch; }
+            .search-bar { max-width: 100%; }
+            .container { padding: 0 18px; }
+            .hero-grid { padding: 28px; }
+        }
+    </style>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NTV0NLN2X5"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'G-NTV0NLN2X5');
+</script>
+
+</head>
+<body>
+
+<div class="top-bar">
+    <div class="container">
+        <div class="navbar">
+            <div class="logo">
+                <h1>🪺 ShopNest</h1>
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Search for products, brands..." id="searchInput">
+                <button id="searchBtn"><i class="fas fa-search"></i></button>
+            </div>
+            <div class="nav-icons">
+               <a href="index.html">Home</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="about.html">About Us</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="categories">
+    <div class="container">
+        <ul class="cat-list">
+            <li>New Arrivals</li>
+            <li>Clothing</li>
+            <li>Electronics</li>
+            <li>Home & Living</li>
+            <li>Accessories</li>
+            <li>Sale</li>
+        </ul>
+    </div>
+</div>
+
+<main>
+    <div class="container">
+        <!-- Hero Banner with working image (valid Unsplash placeholder high-res) -->
+        <div class="hero">
+            <div class="hero-grid">
+                <div class="hero-text">
+                    <div class="badge">✨ Spring Collection 2025</div>
+                    <h2>Find your style,<br>nest your comfort.</h2>
+                    <p>Discover curated fashion, home decor & electronics — all at ShopNest. Free shipping over $50.</p>
+                    <button class="btn-shop" id="shopNowBtn">Shop Now →</button>
+                </div>
+                <div class="hero-image">
+                    <!-- working high quality ecommerce style image (fashion model / lifestyle) -->
+                    <img src="https://picsum.photos/id/20/500/400" alt="ShopNest hero model" onerror="this.src='https://placehold.co/600x400/eef2f6/2c7a7a?text=ShopNest+Style'">
+                </div>
+            </div>
+        </div>
+
+        <!-- Trending products section -->
+        <div class="section-header">
+            <h3>🔥 Trending now</h3>
+            <a href="#">View all <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="product-grid" id="productGrid">
+            <!-- product cards with guaranteed working images (LoremFlick + valid images) -->
+            <!-- Each product uses robust image URLs with fallback -->
+        </div>
+
+        <!-- Feature Banner -->
+        <div class="feature-banner">
+            <h3>Smart Deals, Smarter Nest</h3>
+            <p>Get up to 40% off on trending electronics & home decor. Limited time offer.</p>
+            <button class="btn-light" id="bannerBtn">Claim Deal →</button>
+        </div>
+
+        <!-- Just For You Section  (second row) -->
+        <div class="section-header">
+            <h3>✨ Just for you</h3>
+            <a href="#">More picks</a>
+        </div>
+        <div class="product-grid" id="secondProductGrid"></div>
+    </div>
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>🪹 ShopNest</h4>
+                <p>Your cozy corner for quality finds. Worldwide shipping, sustainable packaging.</p>
+                <div class="social">
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-facebook"></i>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Explore</h4>
+                <p>About Us</p>
+                <p>Gift Cards</p>
+                <p>Sustainability</p>
+                <p>Affiliate</p>
+            </div>
+            <div class="footer-col">
+                <h4>Support</h4>
+                <p>FAQs</p>
+                <p>Returns & Exchanges</p>
+                <p>Track Order</p>
+                <p>Contact</p>
+            </div>
+            <div class="footer-col">
+                <h4>Get the App</h4>
+                <p><i class="fab fa-apple"></i> App Store</p>
+                <p><i class="fab fa-google-play"></i> Google Play</p>
+            </div>
+        </div>
+        <p style="margin-top: 48px; text-align: center; font-size: 0.75rem;">© 2025 ShopNest — All images are demo-friendly & working.</p>
+    </div>
+</footer>
+
+<script>
+    // --------------------------------------------------------------
+    // PRODUCT DATABASE with robust, properly working high-quality images
+    // All images are from reliable CDNs / Unsplash / Picsum / valid urls 
+    // to ensure they display properly.
+    // --------------------------------------------------------------
+    const products = [
+        { id: 1, name: "Cozy Cable Knit Sweater", price: 59.99, oldPrice: 89.99, rating: 4.8, image: "https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=500&h=600&fit=crop", category: "trending" },
+        { id: 2, name: "Wireless Noise Cancelling Headphones", price: 129.99, oldPrice: 199.99, rating: 4.7, image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&h=600&fit=crop", category: "trending" },
+        { id: 3, name: "Minimalist Ceramic Vase Set", price: 39.99, oldPrice: 55.00, rating: 4.9, image: "https://images.unsplash.com/photo-1578500494198-246f612fb3c6?w=500&h=600&fit=crop", category: "trending" },
+        { id: 4, name: "Lightweight Laptop Backpack", price: 49.99, oldPrice: 79.99, rating: 4.6, image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500&h=600&fit=crop", category: "trending" },
+        { id: 5, name: "Smart LED Desk Lamp", price: 34.99, oldPrice: 59.99, rating: 4.5, image: "https://images.unsplash.com/photo-1507473886765-3402ae01f0c0?w=500&h=600&fit=crop", category: "justForYou" },
+        { id: 6, name: "Organic Cotton Oversized T-shirt", price: 27.99, oldPrice: 45.00, rating: 4.7, image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500&h=600&fit=crop", category: "justForYou" },
+        { id: 7, name: "Stainless Steel Water Bottle", price: 22.99, oldPrice: 34.99, rating: 4.8, image: "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=500&h=600&fit=crop", category: "justForYou" },
+        { id: 8, name: "Modern Wall Clock", price: 44.99, oldPrice: 69.99, rating: 4.4, image: "https://images.unsplash.com/photo-1563861826100-9cb868fdbe1c?w=500&h=600&fit=crop", category: "justForYou" }
+    ];
+
+    // fallback images if any main image fails (extremely reliable unsplash alternative)
+    const fallbackImage = "https://picsum.photos/id/26/400/500";
+
+    // Helper: create product card HTML with onerror fallback
+    function createProductCard(product) {
+        const ratingStars = generateStars(product.rating);
+        const hasOldPrice = product.oldPrice ? `<span class="old-price">$${product.oldPrice.toFixed(2)}</span>` : '';
+        return `
+            <div class="product-card" data-id="${product.id}">
+                <div class="product-img">
+                    <img src="${product.image}" alt="${product.name}" loading="lazy" onerror="this.onerror=null; this.src='${fallbackImage}';">
+                </div>
+                <div class="product-info">
+                    <div class="product-title">${product.name}</div>
+                    <div class="price">$${product.price.toFixed(2)} ${hasOldPrice}</div>
+                    <div class="rating">${ratingStars}</div>
+                    <button class="add-to-cart" data-id="${product.id}"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                </div>
+            </div>
+        `;
+    }
+
+    function generateStars(rating) {
+        const full = Math.floor(rating);
+        const half = rating % 1 >= 0.5 ? 1 : 0;
+        let starsHtml = '';
+        for (let i = 0; i < full; i++) starsHtml += '<i class="fas fa-star"></i>';
+        if (half) starsHtml += '<i class="fas fa-star-half-alt"></i>';
+        const empty = 5 - full - half;
+        for (let i = 0; i < empty; i++) starsHtml += '<i class="far fa-star"></i>';
+        return starsHtml + ` <span style="color:#6c757d; font-size:0.75rem;">(${rating})</span>`;
+    }
+
+    // Render trending section (first 4)
+    function renderTrending() {
+        const trendingProds = products.filter(p => p.category === 'trending');
+        const grid = document.getElementById('productGrid');
+        if (grid) {
+            grid.innerHTML = trendingProds.map(p => createProductCard(p)).join('');
+        }
+    }
+
+    function renderJustForYou() {
+        const justProds = products.filter(p => p.category === 'justForYou');
+        const secondGrid = document.getElementById('secondProductGrid');
+        if (secondGrid) {
+            secondGrid.innerHTML = justProds.map(p => createProductCard(p)).join('');
+        }
+    }
+
+    // add to cart event listener (dynamic)
+    function attachAddToCartEvents() {
+        const buttons = document.querySelectorAll('.add-to-cart');
+        buttons.forEach(btn => {
+            btn.removeEventListener('click', handleAddToCart);
+            btn.addEventListener('click', handleAddToCart);
+        });
+    }
+
+    function handleAddToCart(e) {
+        e.stopPropagation();
+        const card = e.currentTarget.closest('.product-card');
+        const productId = card?.dataset.id;
+        const product = products.find(p => p.id == productId);
+        if (product) {
+            alert(`🛒 "${product.name}" added to your cart! (Demo notification)`);
+            // optional animation / mic drop
+        } else {
+            alert("Item added to cart!");
+        }
+    }
+
+    // search functionality interactive (basic filter)
+    function setupSearch() {
+        const searchInput = document.getElementById('searchInput');
+        const searchButton = document.getElementById('searchBtn');
+        function performSearch() {
+            const term = searchInput.value.toLowerCase().trim();
+            if (term === "") {
+                renderTrending();
+                renderJustForYou();
+                attachAddToCartEvents();
+                return;
+            }
+            const filtered = products.filter(p => p.name.toLowerCase().includes(term));
+            const combinedGrid = document.getElementById('productGrid');
+            const secondGrid = document.getElementById('secondProductGrid');
+            // Show filtered in first grid, clear second grid for simplicity
+            if (combinedGrid) {
+                combinedGrid.innerHTML = filtered.map(p => createProductCard(p)).join('');
+            }
+            if (secondGrid) {
+                secondGrid.innerHTML = '<div style="grid-column:1/-1; text-align:center; padding:40px;">✨ No more items — refine search ✨</div>';
+            }
+            attachAddToCartEvents();
+        }
+        searchButton.addEventListener('click', performSearch);
+        searchInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') performSearch(); });
+    }
+
+    // hero button + banner button demo alerts
+    function handleHeroEvents() {
+        const shopNow = document.getElementById('shopNowBtn');
+        const bannerBtn = document.getElementById('bannerBtn');
+        if (shopNow) shopNow.addEventListener('click', () => { alert('Welcome to ShopNest! Start exploring amazing deals.'); });
+        if (bannerBtn) bannerBtn.addEventListener('click', () => { alert('🔥 Special offer: Use code NEST20 at checkout for 20% off!'); });
+    }
+
+    // initial render + mutation observer for dynamic add to cart after re-renders? we call again
+    function initRender() {
+        renderTrending();
+        renderJustForYou();
+        attachAddToCartEvents();
+        setupSearch();
+        handleHeroEvents();
+    }
+
+    // also for any category click effect - simple alert just for interactivity
+    function attachCategoryListeners() {
+        const cats = document.querySelectorAll('.cat-list li');
+        cats.forEach(cat => {
+            cat.addEventListener('click', (e) => {
+                const categoryText = e.target.innerText;
+                alert(`✨ Showing ${categoryText} products (demo). Use search for detailed filtering.`);
+                // optional reset
+                renderTrending();
+                renderJustForYou();
+                attachAddToCartEvents();
+                if (document.getElementById('searchInput')) document.getElementById('searchInput').value = '';
+            });
+        });
+        const navIcons = document.querySelectorAll('.nav-icons i');
+        navIcons.forEach(icon => {
+            icon.addEventListener('click', () => {
+                alert('❤️👛👤 Account / wishlist feature coming soon — love your style!');
+            });
+        });
+    }
+
+    // fallback image protect: ensure all images that might fail still show nice placeholder.
+    // additional safety: after window load we can also replace any broken images (already handled by onerror in html)
+    window.addEventListener('load', () => {
+        initRender();
+        attachCategoryListeners();
+        // manually ensure any image in hero that fails (but hero already fine)
+        const heroImg = document.querySelector('.hero-image img');
+        if (heroImg && heroImg.complete && heroImg.naturalWidth === 0) {
+            heroImg.src = "https://picsum.photos/id/106/600/450";
+        }
+        // second pass: product images with extra insurance (but onerror already there)
+    });
+</script>
+</body>
+</html>
